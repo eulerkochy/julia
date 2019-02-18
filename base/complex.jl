@@ -272,6 +272,10 @@ muladd(z::Complex, w::Complex, x::Complex) =
     Complex(muladd(real(z), real(w), real(x)) - imag(z)*imag(w), # TODO: use mulsub given #15985
             muladd(real(z), imag(w), muladd(imag(z), real(w), imag(x))))
 
+#unary + handling Complex{Bool}
+
++(z::Complex{Bool}) = Complex(convert(Int,z))
+
 # handle Bool and Complex{Bool}
 # avoid type signature ambiguity warnings
 +(x::Bool, z::Complex{Bool}) = Complex(x + real(z), imag(z))
