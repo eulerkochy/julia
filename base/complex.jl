@@ -8,6 +8,9 @@ Complex number type with real and imaginary part of type `T`.
 `ComplexF16`, `ComplexF32` and `ComplexF64` are aliases for
 `Complex{Float16}`, `Complex{Float32}` and `Complex{Float64}` respectively.
 """
+
+import Base.+
+
 struct Complex{T<:Real} <: Number
     re::T
     im::T
